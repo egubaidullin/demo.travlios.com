@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travlios - Cambodia Tourist Platform</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 0;
+        }
+        .language-select {
+            display: flex;
+            align-items: center;
+        }
+        .language-select img {
+            width: 24px;
+            height: 24px;
+            margin-left: 8px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+        }
+        .language-select select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-left: 8px;
+        }
+        .hero-section {
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .quick-access-tiles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .quick-access-tiles > div {
+            width: 48%;
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 1px solid #eee;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quick-access-tiles > div > .material-icons {
+            font-size: 2em;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        .featured-destinations {
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-bottom: 20px;
+        }
+        .featured-destinations > div {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .featured-destinations > div > div {
+            background-color: #ccc;
+            height: 100px;
+            width: 150px;
+            border-radius: 4px;
+        }
+        .destination-detail-hero {
+            background-color: #ccc;
+            height: 250px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .tabbed-navigation {
+            margin-bottom: 20px;
+        }
+        .tabbed-navigation > div {
+            display: flex;
+            justify-content: space-around;
+        }
+        .tabbed-navigation > div > span {
+            padding: 10px;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+        .tabbed-navigation > div > span.active {
+            border-bottom-color: #333;
+        }
+        .safety-alert {
+            background-color: #fdd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .interactive-map {
+            background-color: #eee;
+            height: 150px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .emergency-button {
+            background-color: red;
+            color: white;
+            padding: 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .safety-modules {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .safety-modules > div {
+            background-color: #eee;
+            padding: 15px;
+            text-align: center;
+            border-radius: 4px;
+        }
+        .chat-interface {
+            border: 1px solid #ccc;
+            height: 200px;
+            overflow-y: scroll;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .bottom-nav {
+            background-color: #f0f0f0;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .bottom-nav > .material-icons {
+            font-size: 2em;
+            cursor: pointer;
+        }
+        @media (max-width: 600px) {
+            .quick-access-tiles > div {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="language-select">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg" alt="English">
+                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/cn.svg" alt="Chinese">
+                <select>
+                    <option>More Languages</option>
+                </select>
+            </div>
+        </div>
+        <!-- Home Screen -->
+        <section id="home-screen">
+            <div class="hero-section">
+                <div style="background-color: #ccc; height: 200px; width: 100%; border-radius: 4px;"></div>
+                <input type="text" placeholder="Where are you going?" class="search-bar">
+            </div>
+            <div class="quick-access-tiles">
+                <div > <span class="material-icons">explore</span> Explore Destinations </div>
+                <div > <span class="material-icons">map</span> Plan My Trip </div>
+                <div style="background-color: #fdd;"> <span class="material-icons">security</span> Safety & Support </div>
+                <div > <span class="material-icons">local_hospital</span> AI Medical Assistant </div>
+            </div>
+            <div class="featured-destinations">
+                <div >
+                    <div style="background-color: #ccc; height: 100px; width: 150px;"></div>
+                    <p style="text-align: center;">Destination 1</p>
+                </div>
+                <div >
+                    <div style="background-color: #ccc; height: 100px; width: 150px;"></div>
+                    <p style="text-align: center;">Destination 2</p>
+                </div>
+                <div >
+                    <div style="background-color: #ccc; height: 100px; width: 150px;"></div>
+                    <p style="text-align: center;">Destination 3</p>
+                </div>
+            </div>
+            <div>
+                <h3>Latest Tips</h3>
+                <ul>
+                    <li>Tip 1</li>
+                    <li>Tip 2</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Destination Detail Page -->
+        <section id="destination-detail-page" style="display: none;">
+            <div class="destination-detail-hero"></div>
+            <h1>Angkor Wat</h1>
+            <p>Brief description highlighting its historical significance.</p>
+            <p>⭐ ⭐ ⭐ ⭐ ☆ (4.0) - 123 Reviews</p>
+            <p><span class="material-icons">map</span> Show on Map</p>
+            <div class="tabbed-navigation">
+                <div >
+                    <span class="active">Overview</span>
+                    <span>Visit & Tours</span>
+                    <span>Safety</span>
+                    <span>Community</span>
+                </div>
+                <div id="safety-tab-content" style="display: block;">
+                    <h2>Safety Tips for Angkor Wat</h2>
+                    <ul>
+                        <li>Wear appropriate attire</li>
+                        <li>Be aware of potential scams</li>
+                        <li>Carry water</li>
+                    </ul>
+                    <div class="safety-alert"><span class="material-icons">warning</span> Real-time safety warning: Thunderstorms expected.</div>
+                </div>
+            </div>
+            <div class="interactive-map"></div>
+        </section>
+
+        <!-- Safety & Support Section -->
+        <section id="safety-support-section" style="display: none;">
+            <button class="emergency-button"> <span class="material-icons">report_problem</span> Emergency </button>
+            <h3>Local Emergency Numbers</h3>
+            <ul>
+                <li>Police: 117</li>
+                <li>Ambulance: 119</li>
+                <li>Fire: 118</li>
+                <li>Tourist Police: [Number]</li>
+            </ul>
+            <h3>Safety Alerts</h3>
+            <ul>
+                <li><span class="material-icons">thunderstorm</span> Heavy Rain Expected</li>
+                <li><span class="material-icons">coronavirus</span> Dengue Fever Advisory</li>
+            </ul>
+            <div class="safety-modules">
+                <div > <span class="material-icons">error</span> <br> Common Scams </div>
+                <div > <span class="material-icons">public</span> <br> Cultural Etiquette </div>
+                <div > <span class="material-icons">local_hospital</span> <br> Health Precautions </div>
+            </div>
+            <button>Report a Safety Concern</button>
+        </section>
+
+        <!-- AI Medical Assistant Interface -->
+        <section id="ai-medical-assistant" style="display: none;">
+            <div class="chat-interface">
+                User: I have a headache. <br> AI: Potential causes include...
+            </div>
+            <input type="text" placeholder="Enter your symptoms..." style="width: 100%; padding: 10px;">
+            <div>[Text Input] [Body Map]</div>
+            <h3>Nearby Medical Facilities</h3>
+            <div style="background-color: #eee; height: 100px; border-radius: 4px;">[Map Placeholder]</div>
+            <ul>
+                <li>Hospital A</li>
+                <li>Clinic B</li>
+            </ul>
+            <input type="text" placeholder="Search for medication..." style="width: 100%; padding: 10px;">
+        </section>
+    </div>
+    <div class="bottom-nav">
+        <span class="material-icons">home</span>
+        <span class="material-icons">explore</span>
+        <span class="material-icons">security</span>
+        <span class="material-icons">person</span>
+    </div>
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+            const bottomNav = document.querySelector('.bottom-nav');
+            const sections = {
+                home: document.getElementById('home-screen'),
+                destination: document.getElementById('destination-detail-page'),
+                safety: document.getElementById('safety-support-section'),
+                medical: document.getElementById('ai-medical-assistant')
+            };
+
+            const showSection = (sectionId) => {
+                for (const key in sections) {
+                    sections[key].style.display = key === sectionId ? 'block' : 'none';
+                }
+            };
+
+            bottomNav.addEventListener('click', (event) => {
+                if (event.target.textContent === 'home') {
+                    showSection('home');
+                } else if (event.target.textContent === 'explore') {
+                    showSection('destination');
+                } else if (event.target.textContent === 'security') {
+                    showSection('safety');
+                } else if (event.target.textContent === 'person') {
+                    showSection('medical');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
